@@ -44,11 +44,11 @@ resource "aws_s3_bucket_acl" "bucket" {
   ]
 
   bucket = aws_s3_bucket.app.id
-  acl    = "public-read"
+  acl    = "public-read-write"
 }
 
 resource "aws_s3_object" "app" {
-  acl          = "public-read"
+  acl          = "public-read-write"
   key          = "index.html"
   bucket       = aws_s3_bucket.app.id
   content      = file("./assets/index.html")
